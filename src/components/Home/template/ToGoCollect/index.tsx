@@ -11,7 +11,7 @@ function ToGoCollect() {
   const {navigate} = useNavigation<RootStackNavigationProps>();
 
   const handlePress = () => {
-    navigate('Collect');
+    navigate('Items');
   };
 
   return (
