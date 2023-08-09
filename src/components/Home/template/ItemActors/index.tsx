@@ -28,7 +28,7 @@ function ItemActors() {
     <FlexView
       gapSize="large"
       direction="row"
-      className="items-end justify-center flex-1 py-20">
+      className="items-end justify-center flex-1 py-4">
       <ItemActor
         type="plus"
         itemLength={plusItems.length}
