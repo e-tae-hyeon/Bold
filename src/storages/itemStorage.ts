@@ -8,14 +8,14 @@ export type Item = {
 };
 
 const itemStorage = {
-  async setItems({today, items}: {today: string; items: Item[]}) {
+  async setItems({date, items}: {date: string; items: Item[]}) {
     try {
-      await AsyncStorage.setItem(genKey(today), JSON.stringify(items));
+      await AsyncStorage.setItem(genKey(date), JSON.stringify(items));
     } catch (err) {}
   },
-  async getItems({today}: {today: string}) {
+  async getItems({date}: {date: string}) {
     try {
-      const raw = await AsyncStorage.getItem(genKey(today));
+      const raw = await AsyncStorage.getItem(genKey(date));
 
       if (!raw) return undefined;
       return JSON.parse(raw) as Item[];
@@ -25,6 +25,6 @@ const itemStorage = {
 
 export default itemStorage;
 
-const genKey = (today: string) => {
-  return `${today}-items`;
+const genKey = (date: string) => {
+  return `${date}-items`;
 };
