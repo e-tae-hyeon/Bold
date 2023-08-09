@@ -11,7 +11,11 @@ function RootStack() {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="MainTabs" component={MainTabs} />
-      <Stack.Screen name="Write" component={WriteScreen} />
+      <Stack.Screen
+        name="Write"
+        component={WriteScreen}
+        options={{presentation: 'fullScreenModal'}}
+      />
       <Stack.Screen name="Collect" component={CollectScreen} />
     </Stack.Navigator>
   );

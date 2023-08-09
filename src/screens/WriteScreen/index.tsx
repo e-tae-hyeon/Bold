@@ -1,11 +1,12 @@
+import Layout from 'components/Global/template/Layout';
+import WriteForm from 'components/Write/template/WriteForm';
 import React from 'react';
-import {Text, View} from 'react-native';
 
 function WriteScreen() {
   return (
-    <View>
-      <Text>test</Text>
-    </View>
+    <Layout>
+      <WriteForm />
+    </Layout>
   );
 }
 
