@@ -6,10 +6,7 @@ import React from 'react';
 
 function ItemsNavigator() {
   return (
-    <FlexView
-      direction="row"
-      gapSize="tiny"
-      className="items-center justify-center p-2">
+    <FlexView direction="row" gapSize="tiny" className="p-2 ">
       <AppText typoStyle="B2" color={colors.gray[300]}>
         모두 보기
       </AppText>

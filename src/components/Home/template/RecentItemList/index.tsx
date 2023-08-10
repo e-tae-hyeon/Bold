@@ -46,7 +46,9 @@ function RecentItemList() {
           {items.slice(0, 3).map(item => (
             <ItemCard item={item} key={item.id} isClipContent />
           ))}
-          <ItemsNavigator />
+          <View className="items-end">
+            <ItemsNavigator />
+          </View>
         </FlexView>
       </Pressable>
     </View>
