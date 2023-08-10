@@ -10,7 +10,7 @@ function HomeScreen() {
   return (
     <Layout>
       <HomeHeader />
-      <View className="flex-1 py-4">
+      <View className="flex-1 py-8">
         <TemperIndicator />
         <RecentItemList />
         <WriteNavigators />
