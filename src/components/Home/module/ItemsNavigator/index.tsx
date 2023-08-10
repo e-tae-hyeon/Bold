@@ -6,12 +6,13 @@ import SvgIcon from 'components/@base/SvgIcon';
 import {RootStackNavigationProps} from 'navigations/RootStack/types';
 import React from 'react';
 import {Pressable, View} from 'react-native';
+import {formatDateString} from 'utils/formatDate';
 
 function ItemsNavigator() {
   const {navigate} = useNavigation<RootStackNavigationProps>();
 
   const handlePress = () => {
-    navigate('Items');
+    navigate('Items', {dateString: formatDateString(new Date())});
   };
 
   return (

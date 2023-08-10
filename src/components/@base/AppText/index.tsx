@@ -33,7 +33,7 @@ function AppText({
 
 export default AppText;
 
-export type TypoStyle = 'H1' | 'H2' | 'B1' | 'B2' | 'Caption' | 'Action';
+export type TypoStyle = 'H1' | 'H2' | 'B1' | 'B2' | 'Caption';
 
 const typoStyleMap: Record<TypoStyle, {fontSize: number}> = {
   H1: {fontSize: 24},
@@ -41,5 +41,4 @@ const typoStyleMap: Record<TypoStyle, {fontSize: number}> = {
   B1: {fontSize: 16},
   B2: {fontSize: 14},
   Caption: {fontSize: 12},
-  Action: {fontSize: 16},
 };
