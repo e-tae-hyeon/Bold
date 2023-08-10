@@ -11,6 +11,7 @@ function ItemsHeader() {
 
   const handlePressBack = () => {
     goBack();
+    setIsModeRemove(false);
   };
 
   const handlePressAction = () => {
