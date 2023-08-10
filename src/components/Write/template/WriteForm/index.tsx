@@ -5,7 +5,7 @@ import FlexView from 'components/@base/FlexView';
 import useItems from 'hooks/useItems';
 import {RootStackNavigationProps} from 'navigations/RootStack/types';
 import React, {useState} from 'react';
-import {KeyboardAvoidingView, TextInput} from 'react-native';
+import {KeyboardAvoidingView, Platform, TextInput} from 'react-native';
 import {ItemType} from 'storages/itemStorage';
 import useHomeStore from 'stores/useHomeStore';
 import useWriteStore from 'stores/useWriteStore';
@@ -31,14 +31,20 @@ function WriteForm() {
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding" className="flex-1">
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      className="flex-1">
       <TextInput
         placeholder={placeholder}
         value={content}
         onChangeText={setContent}
         multiline
         autoFocus
-        style={{fontFamily: 'Pretendard-Bold', fontSize: 16}}
+        style={{
+          fontFamily: 'Pretendard-Bold',
+          fontSize: 16,
+          textAlignVertical: 'top',
+        }}
         className="flex-1 px-4 py-12"
       />
       <FlexView direction="row" className="p-4">
