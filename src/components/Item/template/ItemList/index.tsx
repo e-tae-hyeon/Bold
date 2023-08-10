@@ -6,25 +6,37 @@ import {ItemsScreenRouteProp} from 'navigations/RootStack/types';
 import React, {useCallback, useEffect, useState} from 'react';
 import {FlatList, ListRenderItem, View} from 'react-native';
 import {Item} from 'storages/itemStorage';
+import useItemsStore from 'stores/useItemsStore';
 
 function ItemList() {
   const {
     params: {dateString},
   } = useRoute<ItemsScreenRouteProp>();
-  const {getItems} = useItems();
-  const [items, setItems] = useState<Item[]>([]);
+  const {getItems, removeItem} = useItems();
+  const {items, isModeRemove, initItems, subItem} = useItemsStore();
 
   useEffect(() => {
     const load = async () => {
       const loaded = await getItems(dateString);
-      setItems(loaded);
+      initItems(loaded);
     };
     load();
   }, [dateString]);
 
+  const handlePressRemove = async (item: Item) => {
+    subItem(item);
+    await removeItem({date: dateString, item});
+  };
+
   const renderItem: ListRenderItem<Item> = useCallback(
-    ({item}) => <ItemCard item={item} />,
-    [items],
+    ({item}) => (
+      <ItemCard
+        item={item}
+        isVisibleRemove={isModeRemove}
+        onPressRemove={handlePressRemove}
+      />
+    ),
+    [items, isModeRemove],
   );
 
   return (
