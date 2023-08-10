@@ -2,14 +2,14 @@ import colors from 'common/styles/colors';
 import SvgIcon from 'components/@base/SvgIcon';
 import React from 'react';
 import {Pressable} from 'react-native';
-import {ItemType} from 'stores/useWriteStore';
+import {ItemType} from 'storages/itemStorage';
 
-type WriteTriggerBtnProps = {
+type WriteNavigatorProps = {
   type: ItemType;
   onPress: () => void;
 };
 
-function WriteTriggerBtn({type, onPress}: WriteTriggerBtnProps) {
+function WriteNavigator({type, onPress}: WriteNavigatorProps) {
   const {bgColor} = typeMap[type];
 
   return (
@@ -22,7 +22,7 @@ function WriteTriggerBtn({type, onPress}: WriteTriggerBtnProps) {
   );
 }
 
-export default WriteTriggerBtn;
+export default WriteNavigator;
 
 const typeMap: Record<ItemType, {bgColor: string}> = {
   plus: {

@@ -2,15 +2,18 @@ import {useNavigation} from '@react-navigation/native';
 import colors from 'common/styles/colors';
 import Btn from 'components/@base/Btn';
 import FlexView from 'components/@base/FlexView';
+import useItems from 'hooks/useItems';
 import {RootStackNavigationProps} from 'navigations/RootStack/types';
 import React, {useState} from 'react';
 import {KeyboardAvoidingView, TextInput} from 'react-native';
+import {ItemType} from 'storages/itemStorage';
 import useHomeStore from 'stores/useHomeStore';
-import useWriteStore, {ItemType} from 'stores/useWriteStore';
+import useWriteStore from 'stores/useWriteStore';
 
 function WriteForm() {
   const {type} = useWriteStore();
   const {addItem} = useHomeStore();
+  const {createItem} = useItems();
   const {goBack, navigate} = useNavigation<RootStackNavigationProps>();
   const [content, setContent] = useState('');
 
@@ -21,9 +24,10 @@ function WriteForm() {
     goBack();
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     navigate('MainTabs');
-    addItem({type, content, createdAt: Date.now().toString()});
+    const newItem = await createItem({type, content});
+    addItem(newItem);
   };
 
   return (

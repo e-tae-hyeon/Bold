@@ -1,10 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {ItemType} from 'stores/useWriteStore';
+
+export type ItemType = 'plus' | 'minus';
 
 export type Item = {
+  id: string;
   type: ItemType;
   content: string;
-  createdAt: string;
+  createdAt: number;
 };
 
 const itemStorage = {

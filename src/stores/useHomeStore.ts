@@ -6,6 +6,7 @@ type State = {
 };
 
 type Actions = {
+  initItems: (by: Item[]) => void;
   addItem: (by: Item) => void;
 };
 
@@ -15,7 +16,8 @@ const initialState: State = {
 
 const useHomeStore = create<State & Actions>()(set => ({
   ...initialState,
-  addItem: by => set(state => ({...state, items: [...state.items, by]})),
+  initItems: by => set(state => ({...state, items: by})),
+  addItem: by => set(state => ({...state, items: [by, ...state.items]})),
 }));
 
 export default useHomeStore;

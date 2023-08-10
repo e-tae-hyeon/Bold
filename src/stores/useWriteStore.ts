@@ -1,6 +1,5 @@
+import {ItemType} from 'storages/itemStorage';
 import {create} from 'zustand';
-
-export type ItemType = 'plus' | 'minus';
 
 type State = {
   type: ItemType;

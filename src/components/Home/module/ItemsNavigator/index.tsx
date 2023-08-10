@@ -7,7 +7,7 @@ import {RootStackNavigationProps} from 'navigations/RootStack/types';
 import React from 'react';
 import {Pressable, View} from 'react-native';
 
-function ToGoCollect() {
+function ItemsNavigator() {
   const {navigate} = useNavigation<RootStackNavigationProps>();
 
   const handlePress = () => {
@@ -15,14 +15,14 @@ function ToGoCollect() {
   };
 
   return (
-    <View className="items-center justify-center p-4">
+    <View className="items-center justify-center">
       <Pressable onPress={handlePress} className="p-4">
         <FlexView
           direction="row"
           gapSize="tiny"
           className="items-center justify-center">
           <AppText typoStyle="B2" color={colors.gray[300]}>
-            작성한 양분 보기
+            모두 보기
           </AppText>
           <SvgIcon name="chevronRight" size={16} color={colors.gray[300]} />
         </FlexView>
@@ -31,4 +31,4 @@ function ToGoCollect() {
   );
 }
 
-export default ToGoCollect;
+export default ItemsNavigator;
