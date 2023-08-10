@@ -26,7 +26,7 @@ function WriteForm() {
 
   const handleSubmit = async () => {
     navigate('MainTabs');
-    const newItem = await createItem({type, content});
+    const newItem = await createItem({type, content: content.trim()});
     addItem(newItem);
   };
 

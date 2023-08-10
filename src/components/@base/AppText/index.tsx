@@ -6,6 +6,7 @@ type AppTextProps = {
   typoStyle?: TypoStyle;
   color?: string;
   align?: 'left' | 'center' | 'right';
+  numberOfLines?: number;
   children: React.ReactNode;
 };
 
@@ -13,12 +14,14 @@ function AppText({
   typoStyle = 'B1',
   color = colors.black,
   align = 'left',
+  numberOfLines,
   children,
 }: AppTextProps) {
   const {fontSize} = typoStyleMap[typoStyle];
 
   return (
     <Text
+      numberOfLines={numberOfLines}
       style={{
         fontSize,
         fontFamily: 'Pretendard-Bold',

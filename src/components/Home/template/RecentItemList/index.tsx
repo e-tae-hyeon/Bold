@@ -24,7 +24,7 @@ function RecentItemList() {
   return (
     <FlexView gapSize="small" className="px-8 py-4">
       {items.slice(0, 3).map(item => (
-        <ItemCard item={item} key={item.id} />
+        <ItemCard item={item} key={item.id} isClipContent />
       ))}
       <ItemsNavigator />
     </FlexView>

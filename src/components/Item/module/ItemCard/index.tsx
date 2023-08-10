@@ -10,15 +10,17 @@ import {Item, ItemType} from 'storages/itemStorage';
 type ItemCardProps = {
   item: Item;
   isVisibleRemove?: boolean;
+  isClipContent?: boolean;
   onPressRemove?: (item: Item) => void;
 };
 
 function ItemCard({
   item,
   isVisibleRemove = false,
+  isClipContent = false,
   onPressRemove,
 }: ItemCardProps) {
-  const {id, type, content, createdAt} = item;
+  const {type, content, createdAt} = item;
 
   const handlePressRemove = () => {
     if (onPressRemove) onPressRemove(item);
@@ -40,7 +42,7 @@ function ItemCard({
           </Pressable>
         )}
       </View>
-      <AppText>{content}</AppText>
+      <AppText numberOfLines={isClipContent ? 1 : undefined}>{content}</AppText>
     </View>
   );
 }
