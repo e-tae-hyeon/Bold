@@ -1,11 +1,12 @@
+import Layout from 'components/Global/template/Layout';
+import SettingsCells from 'components/Settings/template/SettingsCells';
 import React from 'react';
-import {Text, View} from 'react-native';
 
 function SettingsScreen() {
   return (
-    <View>
-      <Text>test</Text>
-    </View>
+    <Layout>
+      <SettingsCells />
+    </Layout>
   );
 }
 
