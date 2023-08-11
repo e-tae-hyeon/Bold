@@ -1,4 +1,4 @@
-package com.bold;
+package com.be.bold;
 import android.os.Bundle;
 import org.devio.rn.splashscreen.SplashScreen;
 import com.facebook.react.ReactActivity;

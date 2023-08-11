@@ -1,4 +1,4 @@
-package com.bold;
+package com.be.bold;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
