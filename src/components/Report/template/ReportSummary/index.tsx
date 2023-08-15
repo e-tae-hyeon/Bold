@@ -1,8 +1,8 @@
-import {useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import ReportCard from 'components/Report/module/ReportCard';
 import useItems from 'hooks/useItems';
 import {RootStackNavigationProps} from 'navigations/RootStack/types';
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View} from 'react-native';
 import {Item} from 'storages/itemStorage';
 import useRecordStore from 'stores/useRecordStore';
@@ -16,13 +16,15 @@ function ReportSummary() {
   const lengthOfPlus = items.filter(item => item.type === 'plus').length;
   const lengthOfMinus = items.filter(item => item.type === 'minus').length;
 
-  useEffect(() => {
-    const load = async () => {
-      const loaded = await getItems(selectedDateString);
-      setItems(loaded);
-    };
-    load();
-  }, [selectedDateString]);
+  useFocusEffect(
+    useCallback(() => {
+      const load = async () => {
+        const loaded = await getItems(selectedDateString);
+        setItems(loaded);
+      };
+      load();
+    }, [selectedDateString]),
+  );
 
   const handlePress = () => {
     navigate('Items', {dateString: selectedDateString});
