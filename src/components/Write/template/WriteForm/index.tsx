@@ -3,6 +3,7 @@ import colors from 'common/styles/colors';
 import Btn from 'components/@base/Btn';
 import FlexView from 'components/@base/FlexView';
 import useItems from 'hooks/useItems';
+import useReview from 'hooks/useReview';
 import {RootStackNavigationProps} from 'navigations/RootStack/types';
 import React, {useState} from 'react';
 import {KeyboardAvoidingView, Platform, TextInput} from 'react-native';
@@ -16,6 +17,7 @@ function WriteForm() {
   const {createItem} = useItems();
   const {goBack, navigate} = useNavigation<RootStackNavigationProps>();
   const [content, setContent] = useState('');
+  const {requestReview} = useReview();
 
   const placeholder = placeholderMap[type];
   const bgColor = typeColorMap[type];
@@ -28,6 +30,7 @@ function WriteForm() {
     navigate('MainTabs');
     const newItem = await createItem({type, content: content.trim()});
     addItem(newItem);
+    await requestReview();
   };
 
   return (
