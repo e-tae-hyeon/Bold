@@ -34,7 +34,7 @@ function RecentItemList() {
     return (
       <View className="items-center justify-center flex-1">
         <AppText typoStyle="B2" align="center" color={colors.gray[300]}>
-          책임지는 사람이 될 때까지
+          단단한 사람이 될 때까지
         </AppText>
       </View>
     );
